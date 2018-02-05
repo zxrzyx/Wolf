@@ -1,0 +1,22 @@
+<view class="form">
+  <view class="page-section">
+    <view class="weui-cells__title">请输入参与的人数</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" auto-focus placeholder="推荐9人或12人"/>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="weui-cells__title">神牌配置</view>
+    <view class="weui-cells weui-cells_after-title">
+      <text class="selector">预言家</text>
+  </view>
+
+  <view class="weui-cells__title">狼人配置</view>
+    <view class="weui-cells weui-cells_after-title">
+      <text class="selector">白狼王</text>
+  </view>
+
+</view>
