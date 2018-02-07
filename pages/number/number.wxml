@@ -1,0 +1,3 @@
+<view>
+  <text>你的房间号为: {{text}}</text>
+</view>

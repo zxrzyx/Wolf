@@ -1,0 +1,39 @@
+.weui-grids_bottom {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border-radius: 0px;  
+  overflow: hidden;
+}
+
+.weui-grid_rect {
+  position: relative;
+  float: left;
+  padding: 8px 5px;
+  width: 33.33333333%;
+  height: 60px;
+  border-radius: 0px; 
+}
+
+.weui-grid_rect::after {
+  box-sizing: border-box;
+  border-radius: 0px;  
+}
+
+.page__title_middle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.weui-grid__label_bigger {
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  color: #000000;
+  font-size: 20pt;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

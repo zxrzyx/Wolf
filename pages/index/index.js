@@ -24,7 +24,7 @@ Page({
 
   AddInGame: function () {
     wx.navigateTo({
-      url: '../role/role'
+      url: '../join/join'
     })
   },
   

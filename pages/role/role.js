@@ -3,8 +3,18 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
+    checkboxItems: [
+      { name: '预言家', value: '0' },
+      { name: '女巫', value: '1' }
+    ],
   },
   onLoad: function () {
+  },
+
+  chooseNumber: function() {
+    wx.navigateTo({
+      url: '../number/number',
+    })
   },
 
   onShareAppMessage: function () {

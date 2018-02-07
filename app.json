@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/role/role"
+    "pages/role/role",
+    "pages/number/number",
+    "pages/join/join"
   ],
   "window":{
     "backgroundTextStyle":"light",

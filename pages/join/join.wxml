@@ -1,0 +1,19 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title_middle">请输入要加入的房间号</view>
+    </view>
+
+    <view>
+        <view class="page__title_middle">{{roomId}}</view>
+    </view>
+
+    <view class="page__bd">
+        <view class="weui-grids_bottom">
+            <block wx:for="{{grids}}" wx:for-index="index" wx:key="*this">
+                <button id="{{grids[index]}}" bindtap='clickRoomNumber' class="weui-grid_rect" hover-class="weui-grid_active" value="">
+                    <view class="weui-grid__label">{{grids[index]}}</view>
+                </button>
+            </block>
+        </view>
+    </view>
+</view>
