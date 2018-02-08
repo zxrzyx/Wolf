@@ -10,6 +10,13 @@ Page({
   onLoad: function () {
   },
 
+  onShow: function () {
+    var that = this;
+    that.setData({
+      roomId: ""
+    })
+  },
+
   clickRoomNumber: function(e) {
     var that = this;
     var index = e.currentTarget.id;
