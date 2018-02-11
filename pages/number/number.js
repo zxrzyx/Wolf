@@ -1,13 +1,14 @@
 //number..js
 
-var randomNumber = Math.ceil(Math.random() * 10 * 100000);
-
 Page({
   data: {
-    text : randomNumber,
+    text : "000000",
   },
   
-  onLoad: function () {
+  onLoad: function (option) {
+    this.setData({
+      text: option.room,
+    })
   },
 
   onShareAppMessage: function () {

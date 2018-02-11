@@ -34,6 +34,7 @@ Page({
   chooseNumber: function() {
     var god = this.data.contentGod;
     var wolf = this.data.contentWolf;
+    var host = 'https://ncg0gdc4.qcloud.la/weapp/message';
     var mode = '屠城';
     var eggCount = 4;
     if(god == "" || god == null) {
@@ -54,8 +55,28 @@ Page({
       content: god + " " + wolf +" " + eggCount + "村民\r\n" + mode,
       success: function(res) {
         if (res.confirm) {
+          var randomNumber = Math.ceil(Math.random() * 10 * 100000);
+          wx.request({
+            url: host,
+            data: {
+              roomId: randomNumber,
+              info: god,
+            },
+            dataType: 'json',
+            method: 'POST',
+            success: function (res) {
+              console.log(res.data);
+            },
+            fail: function (res) {
+              console.log('submit fail');
+            },
+            complete: function (res) {
+              console.log('submit complete');
+            }
+          })
+          
           wx.navigateTo({
-            url: '../number/number',
+            url: '../number/number?room=' + randomNumber,
           })
         } else {
           //Do nothing

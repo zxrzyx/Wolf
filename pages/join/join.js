@@ -1,6 +1,8 @@
 //join.js
 const util = require('../../utils/util.js')
 
+var host = 'https://ncg0gdc4.qcloud.la/weapp/message'
+
 Page({
   data: {
     grids: [1, 2, 3, 4, 5, 6, 7, 8, 9, "", 0, "Del"],
@@ -33,6 +35,22 @@ Page({
       roomId: roomIndex
     })
     if (roomIndex.length == 6) {
+      
+      wx.request({
+        url: host,
+        dataType: 'json',
+        method: 'GET',
+        success: function (res) {
+          console.log(res.data);
+        },
+        fail: function (res) {
+          console.log('submit fail');
+        },
+        complete: function (res) {
+          console.log('submit complete');
+        }
+      })
+
       wx.navigateTo({
         url: '../number/number',
       })
