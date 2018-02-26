@@ -7,7 +7,11 @@ Page({
   data: {
     grids: [1, 2, 3, 4, 5, 6, 7, 8, 9, "", 0, "Del"],
     number: 1,
-    roomId: ""
+    roomId: "",
+    info: "",
+    master: {},
+    userInfo: {},
+    gamer: [],
   },
   onLoad: function () {
   },
@@ -39,8 +43,14 @@ Page({
       wx.request({
         url: host,
         dataType: 'json',
+        data: {roomId: roomIndex},
         method: 'GET',
         success: function (res) {
+          var result = res.data;
+          var owner = result.master;
+          that.setData({
+            master: owner,
+          })
           console.log(res.data);
         },
         fail: function (res) {

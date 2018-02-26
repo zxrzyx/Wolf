@@ -1,5 +1,6 @@
 //role.js
-const util = require('../../utils/util.js')
+const util = require('../../utils/util.js');
+const app = getApp();
 
 Page({
   data: {
@@ -23,6 +24,9 @@ Page({
       { name: '屠边局', value: '0' },
       { name: '屠城局(建议新人较多时选择)', value: '1' }
     ],
+
+    userInfo:{},
+    hasUserInfo: false,
 
     contentGod: "",
     contentWolf: "",
@@ -61,6 +65,7 @@ Page({
             data: {
               roomId: randomNumber,
               info: god,
+              userInfo: app.globalData.userInfo,
             },
             dataType: 'json',
             method: 'POST',
@@ -83,6 +88,35 @@ Page({
         }
       }
     })
+  },
+
+  onLoad: function() {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
   },
 
   checkboxChange: function (e) {
