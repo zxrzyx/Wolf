@@ -1,3 +1,6 @@
 <view>
   <text>你的房间号为: {{text}}</text>
+  <text>\n房主为: {{master.nickName}}</text>
+  <text>\n板子: {{info}}</text>
+  <text>\n成员: {{gamers}}</text>
 </view>

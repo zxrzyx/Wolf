@@ -23,7 +23,7 @@ Page({
     })
   },
 
-  clickRoomNumber: function(e) {
+   clickRoomNumber: function(e) {
     var that = this;
     var index = e.currentTarget.id;
     var roomIndex = this.data.roomId;
@@ -38,33 +38,51 @@ Page({
     that.setData({
       roomId: roomIndex
     })
-    if (roomIndex.length == 6) {
-      
+
+    console.log(roomIndex);
+    
+    if(roomIndex.length == 6) {
+      this.getWxReturn(roomIndex);
+    }
+  },
+
+  getWxReturn: function(index) {
+    var role = "N/A";
+    var gamer = [];
+    var master = {};
+    let promise = new Promise((resolve, reject) => {
       wx.request({
         url: host,
         dataType: 'json',
-        data: {roomId: roomIndex},
+        data: { roomId: index },
         method: 'GET',
         success: function (res) {
+          console.log(index);
           var result = res.data;
-          var owner = result.master;
-          that.setData({
-            master: owner,
-          })
-          console.log(res.data);
+          if (result != null) {
+            master = result.master;
+            role = result.role;
+            gamer = result.gamer;
+            console.log(result);
+          } else {
+            roomIndex = 0;
+          }
         },
         fail: function (res) {
           console.log('submit fail');
         },
         complete: function (res) {
+          wx.navigateTo({
+            url: '../number/number?roomid=' + index + '&master=' + JSON.stringify                 (master) + '&role=' + role + '&gamer=' + JSON.stringify(gamer),
+          });
           console.log('submit complete');
         }
       })
-
-      wx.navigateTo({
-        url: '../number/number',
-      })
-    }
+    }).then(() => {
+      // wx.navigateTo({
+      //   url: '../number/number?roomid=' + index,
+      // })
+    });
   },
 
   chooseNumber: function () {

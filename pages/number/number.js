@@ -3,12 +3,19 @@
 Page({
   data: {
     text : "000000",
+    master: {},
+    info: "N/A",
+    gamer: [],
   },
   
-  onLoad: function (option) {
+  onLoad: function (options) {
     this.setData({
-      text: option.room,
+      text: options.roomid,
+      master: JSON.parse(options.master),
+      info: options.role,
+      gamer: JSON.parse(options.gamer),
     })
+    console.log(this.data.master.nickName);
   },
 
   onShareAppMessage: function () {
