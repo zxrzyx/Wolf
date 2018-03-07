@@ -1,0 +1,36 @@
+<view class="form">
+  <view class="page-section">
+    <view class="weui-cells__title">请输入参与的人数</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="推荐9到12人" />
+          </view>
+          <view class="weui-cell__ft">
+              <view class="weui-vcode-btn" bindtap='updateRole'>获取验证码</view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="weui-cells__title">板子</view>
+    <view class="weui-cells weui-cells_after-title">
+        <radio-group bindchange="checkboxChange">
+            <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
+                <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+
+                <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                    <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+                    <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+                </view>
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+        </radio-group>
+  </view>
+
+  <view class="weui-cells marginTop: 35px">
+      <button class="weui-btn" type="primary" bindtap="chooseNumber">创建</button>
+  </view>
+
+</view> 

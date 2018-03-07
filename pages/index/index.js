@@ -18,7 +18,7 @@ Page({
 
   createNewGame: function () {
     wx.navigateTo({
-      url: '../role/role'
+      url: '../choosemode/choosemode'
     })
   },
 
