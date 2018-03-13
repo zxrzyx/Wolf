@@ -1,0 +1,17 @@
+/**choosemode.wxss**/
+.button-hover {
+  background-color: red;
+}
+
+.other-button-hover {
+  background-color: blue;
+}
+
+.recommand-mode {
+  margin-top: 200rpx;
+}
+
+.button-create {
+  padding-bottom: 30rpx;
+  width: 600rpx;
+}

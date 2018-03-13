@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/role/role",
     "pages/number/number",
-    "pages/join/join"
+    "pages/join/join",
+    "pages/choosemode/choosemode",
+    "pages/recommand/recommand"
   ],
   "window":{
     "backgroundTextStyle":"light",

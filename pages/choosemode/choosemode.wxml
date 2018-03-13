@@ -1,0 +1,12 @@
+<!--choosemode.wxml-->
+<view class="container">
+  <view class="recommand-mode">
+    <view class="button-create">
+      <button type="primary" size="default" loading="{{loading}}" bindtap="recommandMode"> 使用推荐配置 </button>
+  </view>
+  <view class="self-choose-mode">
+      <button type="default" style="button-create" size="default" loading="{{loading}}" plain="{{plain}}"
+              disabled="{{disabled}}" bindtap="selfChoose"> 自行组合配置 </button>
+    </view>
+  </view>
+</view>
