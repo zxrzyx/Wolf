@@ -81,7 +81,7 @@ Page({
           })
           
           wx.navigateTo({
-            url: '../number/number?roomid=' + randomNumber + '&master=' + JSON.stringify(master) + '&role=' + role + '&gamer=' + JSON.stringify(gamer),
+            url: '../number/number?room=' + randomNumber,
           })
         } else {
           //Do nothing
