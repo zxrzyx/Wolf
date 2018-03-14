@@ -21,7 +21,7 @@ Page({
     ],
 
     modeItems: [
-      { name: '屠边局', value: '0' },
+      { name: '屠边局', value: '0'},
       { name: '屠城局(建议新人较多时选择)', value: '1' }
     ],
 
@@ -30,6 +30,7 @@ Page({
 
     contentGod: "",
     contentWolf: "",
+    contentMode: "",
     contentCount: 0,
   },
   onLoad: function () {
@@ -39,8 +40,11 @@ Page({
     var god = this.data.contentGod;
     var wolf = this.data.contentWolf;
     var host = 'https://ncg0gdc4.qcloud.la/weapp/message';
-    var mode = '屠城';
+    var mode = this.data.contentMode;
+    var role = god + " " + wolf + " " + eggCount + "村民\r\n" + mode;
     var eggCount = 4;
+    var gamer = [];
+    var master = this.data.userInfo;
     if(god == "" || god == null) {
       wx.showModal({
         content: '请选择足够的神牌',
@@ -56,7 +60,7 @@ Page({
     }
     wx.showModal({
       title: '确认板子信息',
-      content: god + " " + wolf +" " + eggCount + "村民\r\n" + mode,
+      content: role,
       success: function(res) {
         if (res.confirm) {
           var randomNumber = Math.ceil(Math.random() * 10 * 100000);
@@ -81,7 +85,7 @@ Page({
           })
           
           wx.navigateTo({
-            url: '../number/number?room=' + randomNumber,
+            url: '../number/number?roomid=' + randomNumber + '&master=' + JSON.stringify(master) + '&role=' + role + '&gamer=' + JSON.stringify(gamer),
           })
         } else {
           //Do nothing
@@ -164,18 +168,21 @@ Page({
   modeCheckboxChange: function (e) {
     var items = this.data.modeItems;
     var values = e.detail.value;
+    var content = '';
 
     for (let i = 0; i < items.length; i++) {
       items[i].checked = false;
       for (let j = 0; j < values.length; j++) {
         if (items[i].value == values[j]) {
           items[i].checked = true;
+          content = items[i].name;
         }
       }
     }
 
     this.setData({
-      modeItems: items
+      modeItems: items,
+      contentMode: content,
     })
   },
 
