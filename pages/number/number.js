@@ -1,4 +1,4 @@
-//number..js
+//number.js
 
 Page({
   data: {

@@ -34,6 +34,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     memberCount: 12,
+    hide_condition: false,
 
     content: "",
   },
@@ -71,8 +72,11 @@ Page({
             }
           })
 
+          // wx.navigateTo({
+          //   url: '../number/number?roomid=' + randomNumber + '&master=' + JSON.stringify(master) + '&role=' + info + '&gamer=' + JSON.stringify(null),
+          // })
           wx.navigateTo({
-            url: '../number/number?roomid=' + randomNumber + '&master=' + JSON.stringify(master) + '&role=' + info + '&gamer=' + JSON.stringify(null),
+            url: '../room/room',
           })
         } else {
           //Do nothing
@@ -113,10 +117,12 @@ Page({
     if(count == 12) {
     this.setData({
         checkboxItems: recommandRole_12,
+        hide_condition: true,
       })
     } else {
       this.setData({
         checkboxItems: recommandRole_9,
+        hide_condition: true,
       })
     }
   },

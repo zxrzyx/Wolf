@@ -13,8 +13,9 @@
     </view>
   </view>
 
-
-  <view class="weui-cells__title">板子</view>
+  <block wx:if="{{hide_condition}}">
+    <view class="weui-cells__title">板子</view>
+  </block>
     <view class="weui-cells weui-cells_after-title">
         <radio-group bindchange="checkboxChange">
             <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">

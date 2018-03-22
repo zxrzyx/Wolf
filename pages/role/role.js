@@ -31,9 +31,10 @@ Page({
     contentGod: "",
     contentWolf: "",
     contentMode: "",
+
     contentCount: 0,
-  },
-  onLoad: function () {
+    eggCount: 4,
+    wolfCount: 4,
   },
 
   chooseNumber: function() {
@@ -121,6 +122,18 @@ Page({
         }
       })
     }
+  },
+
+  eggCount: function (e) {
+    this.setData({
+      eggCount: e.detail.value,
+    })
+  },
+
+  wolfCount: function (e) {
+    this.setData({
+      wolfCount: e.detail.value,
+    })
   },
 
   checkboxChange: function (e) {

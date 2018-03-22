@@ -6,7 +6,8 @@
     "pages/number/number",
     "pages/join/join",
     "pages/choosemode/choosemode",
-    "pages/recommand/recommand"
+    "pages/recommand/recommand",
+    "pages/room/room"
   ],
   "window":{
     "backgroundTextStyle":"light",

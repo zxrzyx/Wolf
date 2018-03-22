@@ -1,0 +1,14 @@
+<view>
+  <!-- <text>你的房间号为: {{text}}</text>
+  <text>\n房主为: {{master.nickName}}</text>
+  <text>\n板子: {{info}}</text>
+  <text>\n成员: {{gamers}}</text> -->
+
+  <view class="weui-cells marginTop: 35px">
+      <button class="weui-btn" type="primary" bindtap="chooseNumber">创建</button>
+  </view>
+
+    <view class="weui-cells marginTop: 35px">
+      <button class="weui-btn" type="primary" bindtap="sendMessage">发送</button>
+  </view>
+</view>

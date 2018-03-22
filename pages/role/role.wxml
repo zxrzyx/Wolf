@@ -1,9 +1,18 @@
 <view class="form">
   <view class="page-section">
-    <view class="weui-cells__title">请输入参与的人数</view>
+    <view class="weui-cells__title">请输入村民数量</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
-        <input class="weui-input" auto-focus placeholder="推荐9人或12人"/>
+        <input class="weui-input" auto-focus placeholder="推荐4人/12人局" bindinput='eggCount'/>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">请输入普狼数量</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" auto-focus placeholder="根据狼神数量调整" bindinput='wolfCount'/>
       </view>
     </view>
   </view>
