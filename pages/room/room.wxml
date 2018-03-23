@@ -11,4 +11,8 @@
     <view class="weui-cells marginTop: 35px">
       <button class="weui-btn" type="primary" bindtap="sendMessage">发送</button>
   </view>
+
+ <view class="weui-cells marginTop: 35px">
+      <button class="weui-btn" type="primary" bindtap="closeTunnel">Close</button>
+  </view>
 </view>

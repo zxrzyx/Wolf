@@ -21,27 +21,27 @@ Page({
     //   gamer: JSON.parse(options.gamer),
     // })
     // console.log(this.data.master.nickName);
+    this.openTunnel()
   },
   
   chooseNumber: function() {
     this.openTunnel()
-    this.sendMessage()
   },
 
   openTunnel: function () {
-    util.showBusy('信道连接中...')
+    util.showBusy('加入中...')
     // 创建信道，需要给定后台服务地址
     var tunnel = this.tunnel = new qcloud.Tunnel(config.service.tunnelUrl)
 
     // 监听信道内置消息，包括 connect/close/reconnecting/reconnect/error
     tunnel.on('connect', () => {
-      util.showSuccess('信道已连接')
+      util.showSuccess('已加入')
       console.log('WebSocket 信道已连接')
       this.setData({ tunnelStatus: 'connected' })
     })
 
     tunnel.on('close', () => {
-      util.showSuccess('信道已断开')
+      util.showSuccess('房间已退出')
       console.log('WebSocket 信道已断开')
       this.setData({ tunnelStatus: 'closed' })
     })
@@ -57,7 +57,7 @@ Page({
     })
 
     tunnel.on('error', error => {
-      util.showModel('信道发生错误', error)
+      util.showModel('加入发生错误', error)
       console.error('信道发生错误：', error)
     })
 
